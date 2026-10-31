@@ -2,8 +2,68 @@
   <head>
     <meta charset="UTF-8" />
     <title>Quizz semaine 44</title>
+		<script src="securite.js"></script>
+		<script>
+			const urlParams = new URLSearchParams(window.location.search);
+
+			let parti = [];
+			parti[1]='La France Insoumise'; parti[2]='Les Ecologistes'; parti[3]='Parti Socialiste'; parti[4]='Place Publique'; parti[5]='Renaissance'; parti[6]='Horizons'; parti[7]='Les Républicains'; parti[8]='Rassemblement National';
+			
+			var mesure = Math.floor(Math.random() * programmes.length);
+			
+			function verifier() {
+				document.getElementById('total').value=Number(urlParams.get('total'))+1;
+				if (programmes[mesure].get('reponse') == document.querySelector('input[name="reponse"]:checked').value) {
+					document.getElementById('score').value=Number(urlParams.get('score'))+1;
+					alert('Bonne réponse ! Cela fait un score de '+document.getElementById('score').value+' sur '+document.getElementById('total').value);
+				} else {
+					alert('Non, c\'était '+parti[programmes[mesure].get('reponse')]+' ! Cela fait un score de '+document.getElementById('score').value+' sur '+document.getElementById('total').value);
+				}
+			}
+		</script>
   </head>
   <body>
-    <h1>La santé</h1>
+    <div name="quizz" id="quizz">
+			<img src="quizz.png" onclick="javascript:document.getElementById('quizz').hidden=true;document.getElementById('theme').hidden=false;" />
+		</div>
+    <div name="theme" id="theme">
+			<!--<img src="theme.png" onclick="javascript:document.getElementById('quizz').hidden=true;document.getElementById('theme').hidden=false;" />-->
+			<h1>La sécurité et l'ordre public</h1>
+			Une réponse par question
+			<button onclick="javascript:document.getElementById('theme').hidden=true;document.getElementById('item').hidden=false;">Accéder aux questions</button>
+		</div>
+    <div name="item" id="item">
+			<!--<img src="item.png" onclick="javascript:document.getElementById('quizz').hidden=true;document.getElementById('theme').hidden=false;" />-->
+			<h1>Quel parti propose cette mesure dans son programme&nbsp;?</h1>
+			<div name="mesure" id="mesure"></div><p />
+			<form>
+				<input type="hidden" name="score" id="score" value="0" />
+				<input type="hidden" name="total" id="total" value="0" />
+				<input type="radio" name="reponse" id="reponse" value="1" checked /><label for="1">La France Insoumise</label>
+				<input type="radio" name="reponse" id="reponse" value="2" /><label for="2">Les Ecologistes</label>
+				<input type="radio" name="reponse" id="reponse" value="3" /><label for="3">Parti Socialiste</label>
+				<input type="radio" name="reponse" id="reponse" value="4" /><label for="4">Place Publique</label>
+				<input type="radio" name="reponse" id="reponse" value="5" /><label for="5">Renaissance</label>
+				<input type="radio" name="reponse" id="reponse" value="6" /><label for="6">Horizons</label>
+				<input type="radio" name="reponse" id="reponse" value="7" /><label for="7">Les Républicains</label>
+				<input type="radio" name="reponse" id="reponse" value="8" /><label for="8">Rassemblement National</label><p />
+				<input type="submit" value="Valider" onclick="javascript:verifier();" />
+			</form>
+			<button onclick="javascript:document.location.replace('index.html');">Recommencer</button>
+		</div>
+		<script>
+			document.getElementById("mesure").textContent = programmes[mesure].get('mesure');
+			if (urlParams.has('reponse')) {
+				document.getElementById('quizz').hidden=true;
+				document.getElementById('theme').hidden=true;
+				document.getElementById('item').hidden=false;
+				document.getElementById('score').value=urlParams.get('score');
+				document.getElementById('total').value=urlParams.get('total');
+			} else {
+				document.getElementById('quizz').hidden=false;
+				document.getElementById('theme').hidden=true;
+				document.getElementById('item').hidden=true;
+			}
+		</script>
   </body>
 </html>
