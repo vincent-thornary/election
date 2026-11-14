@@ -1,9 +1,9 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Quizz semaine 45</title>
+    <title>Quizz semaine 46</title>
 		<link href="styles.css" rel="stylesheet">
-		<script src="sante.js"></script>
+		<script src="etranger.js"></script>
 		<script>
 			const urlParams = new URLSearchParams(window.location.search);
 
@@ -11,7 +11,7 @@
 			parti[1]='La France Insoumise'; parti[2]='Les Ecologistes'; parti[3]='Parti Socialiste'; parti[4]='Place Publique'; parti[5]='Renaissance'; parti[6]='Horizons'; parti[7]='Les Républicains'; parti[8]='Rassemblement National';
 
 			let ancien = [];
-			ancien[43]='finances'; ancien[44]='securite';
+			ancien[43]='finances'; ancien[44]='securite'; ancien[45]='sante';
 			
 			var mesure = Math.floor(Math.random() * programmes.length);
 
@@ -51,7 +51,7 @@
 			<div class="conteneur">
 					<div class="filigrane-quizz"></div>
 					<div class="contenu">
-						<p style="position: absolute; top: 100px; left: 250px;">La santé</p>
+						<p style="position: absolute; top: 100px; left: 250px;">La politique étrangère</p>
 						<p style="position: absolute; top: 250px; left: 40px; width: 150px;">Une réponse par question</p>
 						<p style="position: absolute; top: 250px; left: 235px; width: 150px;">
 							Anciens quizz
@@ -59,6 +59,7 @@
 								<select name="ancien" id="ancien" onchange="javascript:changer();">
 									<option value="0" selected>--Choisir un quizz--</option>
 									<option value="44">S44 - Sécurité</option>
+									<option value="44">S45 - Santé</option>
 								</select>
 							</form>
 						</p>
@@ -90,6 +91,17 @@
 					</div>
 			</div>
 		</div>
+		Pour aller plus loin (liste des programmes déjà parus) :
+		<ul>
+		 <li><a href="https://melenchon2027.fr/programme/livre" target="_blank">La France Insoumise</a></li>
+		 <li><a href="https://lesecologistes.fr/document/3N4JsAEmq6vsx42IITGNZa/vdef-programme-1.pdf" target="_blank">Les Ecologistes</a></li>
+		 <li>Parti Socialiste</li>
+		 <li>Place Publique</li>
+		 <li>Renaissance</li>
+		 <li>Horizonsli>
+		 <li>Les Républicains</li>
+		 <li>Rassemblement National</li>
+		</ul>
 		<script>
 			document.getElementById("mesure").textContent = programmes[mesure].get('mesure');
 			if (urlParams.has('reponse')) {
