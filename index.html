@@ -1,9 +1,9 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Quizz semaine 47</title>
+    <title>Quizz semaine 48</title>
 		<link href="styles.css" rel="stylesheet">
-		<script src="animal.js"></script>
+		<script src="energie.js"></script>
 		<script>
 			const urlParams = new URLSearchParams(window.location.search);
 
@@ -11,7 +11,7 @@
 			parti[1]='La France Insoumise'; parti[2]='Les Ecologistes'; parti[3]='Parti Socialiste'; parti[4]='Place Publique'; parti[5]='Renaissance'; parti[6]='Horizons'; parti[7]='Les Républicains'; parti[8]='Rassemblement National';
 
 			let ancien = [];
-			ancien[43]='finances'; ancien[44]='securite'; ancien[45]='sante'; ancien[46]='etranger';
+			ancien[43]='finances'; ancien[44]='securite'; ancien[45]='sante'; ancien[46]='etranger'; ancien[47]='animal';
 			
 			var mesure = Math.floor(Math.random() * programmes.length);
 
@@ -51,7 +51,7 @@
 			<div class="conteneur">
 					<div class="filigrane-quizz"></div>
 					<div class="contenu">
-						<p style="position: absolute; top: 100px; left: 250px;">La cause animale</p>
+						<p style="position: absolute; top: 100px; left: 250px;">L'énergie</p>
 						<p style="position: absolute; top: 250px; left: 40px; width: 150px;">Une réponse par question</p>
 						<p style="position: absolute; top: 250px; left: 235px; width: 150px;">
 							Anciens quizz
@@ -61,6 +61,7 @@
 									<option value="44">S44 - Sécurité</option>
 									<option value="45">S45 - Santé</option>
 									<option value="46">S46 - Etranger</option>
+									<option value="47">S47 - Animal</option>
 								</select>
 							</form>
 						</p>
